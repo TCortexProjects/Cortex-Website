@@ -1,4 +1,3 @@
-
 import React from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./assets/logo.png";
@@ -37,6 +36,17 @@ export default function Header() {
 
         <li className="nav-item">
           <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? "nav-link active-link" : "nav-link"
+            }
+          >
+            Contact
+          </NavLink>
+        </li>
+
+        <li className="nav-item">
+          <NavLink
             to="/services"
             className={({ isActive }) =>
               isActive ? "nav-link active-link" : "nav-link"
@@ -56,17 +66,7 @@ export default function Header() {
             About 
           </NavLink>
         </li>
-
-        <li className="nav-item">
-          <NavLink
-            to="/admin"
-            className={({ isActive }) =>
-              isActive ? "nav-link active-link" : "nav-link"
-            }
-          >
-            contact
-          </NavLink>
-        </li>
+        
       </ul>
     </header>
   );

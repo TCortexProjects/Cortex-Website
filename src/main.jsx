@@ -8,6 +8,7 @@ import Services from "./Services.jsx";
 import About from "./About.jsx";
 import AdminPage from "./pages/AdminConnect.jsx";
 import VerifyPage from "./pages/VerifyPage";
+import Contact from "./Contact";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
