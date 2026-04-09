@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import App from "./App.jsx";
 import Home from "./Home.jsx";
 import Services from "./Services.jsx";
 import About from "./About.jsx";
-import AdminPage from "./pages/AdminConnect.jsx";
 import VerifyPage from "./pages/VerifyPage";
 import Contact from "./Contact";
 import "./index.css";

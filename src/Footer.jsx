@@ -35,9 +35,9 @@ export default function Footer() {
             <iframe
               title="Braamfontein Map"
               src="https://www.google.com/maps?q=41+Juta+Street+Braamfontein+Johannesburg&output=embed"
-              width="100%"
+              width="80%"
               height="200"
-              style={{ border: 0 }}
+              style={{ border: 0, borderRadius: "12px" }}
               loading="lazy"
             ></iframe>
 

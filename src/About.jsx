@@ -6,6 +6,7 @@ export default function About() {
   const [showMore, setShowMore] = useState(false);
 
   return (
+      <div className="light-grey-page">
     <div>
       
       <img
@@ -91,6 +92,7 @@ export default function About() {
         )}
 
       </div>
+    </div>
     </div>
   );
 }

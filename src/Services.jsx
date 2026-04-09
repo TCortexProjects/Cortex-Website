@@ -6,6 +6,7 @@ export default function Services() {
   const navigate = useNavigate();
 
   return (
+    <div className="light-grey-page">  
     <div className="container my-5">
       <div className="services-box">
         <h2>Our Services</h2>
@@ -25,6 +26,7 @@ export default function Services() {
         </div>
       </div>
     </div>
+    </div> 
   );
 }
 
