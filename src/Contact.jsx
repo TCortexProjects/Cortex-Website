@@ -53,10 +53,10 @@ export default function Contact() {
         });
         setTimeout(() => setSuccess(""), 3000);
       } else {
-        alert("Failed to send ❌");
+        alert("Failed to send message");
       }
     } catch (error) {
-      alert("Server error ❌");
+      alert("Server error ");
     }
   };
 
