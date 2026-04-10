@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import * as bootstrap from "bootstrap";
 
 import hero1 from "./assets/hero1.jpg";
 import hero2 from "./assets/hero2.jpg";
@@ -10,16 +10,24 @@ import hero3 from "./assets/hero3.jpg";
 export default function HeroCarousel() {
   const [showForm, setShowForm] = useState(false);
   const [success, setSuccess] = useState("");
+  const carouselRef = useRef(null);
 
-  const slides = [
-    { image: hero1 },
-    { image: hero2 },
-    { image: hero3 },
-  ];
+  
+  useEffect(() => {
+    if (!carouselRef.current) return;
+    const carousel = new bootstrap.Carousel(carouselRef.current, {
+      interval: 3000,
+      ride: "carousel",
+      wrap: true,
+      pause: false,
+    });
+    return () => carousel.dispose();
+  }, []);
+
+  const slides = [hero1, hero2, hero3];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -50,30 +58,24 @@ export default function HeroCarousel() {
         form.reset();
         setTimeout(() => setSuccess(""), 3000);
       } else {
-        alert("Failed to send ");
+        alert("Failed to send");
       }
     } catch (error) {
-      alert("Server error ");
+      alert("Server error");
     }
   };
 
   return (
     <div
+      ref={carouselRef}
       id="heroCarousel"
       className="carousel slide carousel-fade position-relative"
-      data-bs-ride="carousel"
-      data-bs-interval="3000"
-      data-bs-pause="false"
     >
-      
       <div className="carousel-inner">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`carousel-item ${index === 0 ? "active" : ""}`}
-          >
+        {slides.map((img, index) => (
+          <div key={index} className={`carousel-item ${index === 0 ? "active" : ""}`}>
             <img
-              src={slide.image}
+              src={img}
               className="d-block w-100"
               alt={`Slide ${index + 1}`}
               style={{ height: "70vh", objectFit: "cover" }}
@@ -82,7 +84,6 @@ export default function HeroCarousel() {
         ))}
       </div>
 
-      
       <div
         style={{
           position: "absolute",
@@ -92,9 +93,8 @@ export default function HeroCarousel() {
         }}
       />
 
-      
       <div
-      className="hero-section"
+        className="hero-section"
         style={{
           position: "absolute",
           inset: 0,
@@ -116,10 +116,7 @@ export default function HeroCarousel() {
         </p>
 
         {!showForm && (
-          <button
-            onClick={() => setShowForm(true)}
-            className="btn btn-primary mt-3"
-          >
+          <button onClick={() => setShowForm(true)} className="btn btn-primary mt-3">
             Schedule a Discovery Conversation
           </button>
         )}
@@ -137,62 +134,30 @@ export default function HeroCarousel() {
             }}
           >
             {success && (
-              <div
-                style={{
-                  marginBottom: "10px",
-                  color: "lightgreen",
-                  fontWeight: "bold",
-                }}
-              >
+              <div style={{ marginBottom: "10px", color: "lightgreen", fontWeight: "bold" }}>
                 {success}
               </div>
             )}
 
             <div className="mb-2">
-              <input
-                type="text"
-                name="name"
-                className="form-control"
-                placeholder="Your Name"
-                required
-              />
+              <input type="text" name="name" className="form-control" placeholder="Your Name" required />
             </div>
-
             <div className="mb-2">
-              <input
-                type="email"
-                name="email"
-                className="form-control"
-                placeholder="Your Email"
-                required
-              />
+              <input type="email" name="email" className="form-control" placeholder="Your Email" required />
             </div>
-
             <div className="mb-2">
-              <input
-                type="text"
-                name="company"
-                className="form-control"
-                placeholder="Company (optional)"
-              />
+              <input type="text" name="company" className="form-control" placeholder="Company (optional)" />
             </div>
-
             <button type="submit" className="btn btn-success w-100">
               Submit
             </button>
 
-            <div
-              style={{ marginTop: "10px", fontSize: "14px", opacity: 0.85 }}
-            >
+            <div style={{ marginTop: "10px", fontSize: "14px", opacity: 0.85 }}>
               30–45 minutes • No sales pitch • Confidential
             </div>
-
             <p style={{ marginTop: "5px", fontSize: "14px", opacity: 0.85 }}>
               Prefer email?{" "}
-              <a
-                href="mailto:taurai.m@cortexmicrosystems.co.za"
-                style={{ color: "white", textDecoration: "underline" }}
-              >
+              <a href="mailto:taurai.m@cortexmicrosystems.co.za" style={{ color: "white", textDecoration: "underline" }}>
                 taurai.m@cortexmicrosystems.co.za
               </a>
             </p>
@@ -200,7 +165,6 @@ export default function HeroCarousel() {
         )}
       </div>
 
-      
       <button
         className="carousel-control-prev"
         type="button"

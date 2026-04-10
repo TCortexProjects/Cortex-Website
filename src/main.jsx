@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import App from "./App.jsx";
 import Home from "./Home.jsx";
 import Services from "./Services.jsx";
@@ -11,14 +12,14 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<App />}>
 
           <Route index element={<Home />} />
           <Route path="services" element={<Services />} />
           <Route path="about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="verify/:tagId" element={<VerifyPage />} />
           <Route
             path="*"

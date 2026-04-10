@@ -460,12 +460,12 @@ body {
   border-radius: 0 0 10px 10px;
 }
 
-/* Logo */
+
 .logo {
   height: 45px;
 }
 
-/* Nav */
+
 .nav {
   display: flex;
   gap: 10px;
@@ -474,7 +474,7 @@ body {
   padding: 0;
 }
 
-/* Nav links (ALL SAME ALWAYS) */
+
 .nav-link {
   padding: 6px 12px;
   background-color: white;
@@ -485,13 +485,13 @@ body {
   transition: 0.2s;
 }
 
-/* REMOVE ACTIVE DIFFERENCE */
+
 .nav-link.active-link {
   background-color: white;
   color: #0d6efd;
 }
 
-/* Small hover effect (optional) */
+
 .nav-link:hover {
   transform: translateY(-1px);
 }

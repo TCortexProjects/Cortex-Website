@@ -182,7 +182,7 @@ body, #root {
   color: #0A66C2;
 }
 
-* Header background and style */
+
 .custom-header {
   background-color: #0d6efd; 
   width: 100%;
@@ -194,8 +194,6 @@ body, #root {
 }
 
 
-
-/* Nav items style */
 .custom-header .nav-link {
   color: white;
   margin-left: 15px;
@@ -210,7 +208,6 @@ body, #root {
   color: #e0e0e0;
 }
 
-/* Active page underline */
 .custom-header .active-link {
   border-bottom: 2px solid white;
 }
